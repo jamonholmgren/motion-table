@@ -6,7 +6,7 @@ TODO: Write a gem description
 
 Add this line to your application's Gemfile:
 
-    gem 'motion-table'
+    gem 'motion-table', git: 'git@github.com:clearsightstudio/motion-table.git'
 
 And then execute:
 
