@@ -1,3 +1,4 @@
+#!/usr/bin/env rake
 $:.unshift("/Library/RubyMotion/lib")
 begin
   require 'bundler'
