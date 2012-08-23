@@ -2,7 +2,7 @@
 
 MotionTable is a RubyMotion gem for easily building table views in iOS.
 
-*This gem has not been published to rubygems.org*
+*RubyGems.org does not have the current version of this gem.*
 
 ## Installation
 
