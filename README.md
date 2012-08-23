@@ -8,6 +8,8 @@ Add this line to your application's Gemfile:
 
     gem 'motion-table', :git => 'git@github.com:clearsightstudio/motion-table.git'
 
+*This gem has not been published to rubygems.org*
+
 And then execute:
 
     $ bundle
