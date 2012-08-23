@@ -19,34 +19,36 @@ Or install it yourself as:
 ## Usage
 
 Create your controller and include MotionTable, create tables easily
-  
-    class MyController < UITableViewController
-      include MotionTable::GroupedTable
 
-      def viewDidLoad
-        super
-        self.title = "Settings"
+```ruby  
+class MyController < UITableViewController
+  include MotionTable::GroupedTable
 
-        @grouped_table_view_data ||= [
-          {
-            title: "Your Account",
-            cells: [
-              { title: "Edit Profile", action: :edit_profile },
-              { title: "Log Out", action: :log_out },
-            ]
-          },
-          {
-            title: "My App",
-            cells: [
-              { title: "About", action: :something_here },
-              { title: "Feedback", action: :something_here }
-            ]
-          }
+  def viewDidLoad
+    super
+    self.title = "Settings"
+
+    @grouped_table_view_data ||= [
+      {
+        title: "Your Account",
+        cells: [
+          { title: "Edit Profile", action: :edit_profile },
+          { title: "Log Out", action: :log_out },
         ]
+      },
+      {
+        title: "My App",
+        cells: [
+          { title: "About", action: :something_here },
+          { title: "Feedback", action: :something_here }
+        ]
+      }
+    ]
 
-        self.view = self.createTableViewFromData(@grouped_table_view_data)
-      end
-    end
+    self.view = self.createTableViewFromData(@grouped_table_view_data)
+  end
+end
+```
 
 ## Contributing
 
