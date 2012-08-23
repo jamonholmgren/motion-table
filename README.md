@@ -16,6 +16,10 @@ Or install it yourself as:
 
     $ gem install motion-table
 
+## Please Note
+
+Right now you may get the error `There was an error in your Gemfile, and Bundler cannot continue.` when running rake. We are looking into this.
+
 ## Usage
 
 Create your controller and include MotionTable, create tables easily
