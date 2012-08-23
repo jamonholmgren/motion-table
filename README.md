@@ -51,6 +51,14 @@ class MyController < UITableViewController
 
     self.view = self.createTableViewFromData(@grouped_table_view_data)
   end
+
+  def log_out
+    # This will be called when the Log Out table cell is pressed
+  end
+
+  def edit_profile
+    # Implement your edit_profile view here
+  end
 end
 ```
 
