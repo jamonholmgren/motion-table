@@ -20,6 +20,8 @@ Or install it yourself as:
 
 Right now you may get the error `There was an error in your Gemfile, and Bundler cannot continue.` when running rake. We are looking into this.
 
+Also, We only have GroupedTables implemented at this point.
+
 ## Usage
 
 Create your controller and include MotionTable, create tables easily
