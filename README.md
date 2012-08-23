@@ -18,7 +18,32 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Create your controller and include MotionTable, create tables easily
+
+    def viewDidLoad
+      super
+      self.title = "Settings"
+
+      @grouped_table_view_data ||= [
+        {
+          title: "Your Account",
+          cells: [
+            { title: "Edit Profile", action: :edit_profile },
+            { title: "Log Out", action: :log_out },
+          ]
+        },
+        {
+          title: "My App",
+          cells: [
+            { title: "About", action: :something_here },
+            { title: "Feedback", action: :something_here }
+          ]
+        }
+      ]
+
+      self.view = self.createTableViewFromData(@grouped_table_view_data)
+    end
+
 
 ## Contributing
 
