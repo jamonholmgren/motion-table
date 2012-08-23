@@ -1,6 +1,6 @@
-# Motion::Tables
+# MotionTable
 
-TODO: Write a gem description
+MotionTable is a RubyMotion gem for easily building table views in iOS.
 
 ## Installation
 
@@ -49,6 +49,8 @@ class MyController < UITableViewController
   end
 end
 ```
+
+[<img src="http://i.imgur.com/lCIU6.png">]
 
 ## Contributing
 
