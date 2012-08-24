@@ -1,6 +1,7 @@
 module MotionTable
   class Console
     NAME = "MotionTable::Console"
+    DEFAULT_COLOR = [ '', '' ]
     RED_COLOR = [ '\e[0;31m', '\e[0m' ]
 
     class << self
@@ -9,7 +10,13 @@ module MotionTable
       end
 
       def log(log, withColor:color)
-        puts "#{color[0]} #{NAME} #{log} #{color[1]}".to_s
+        puts color[0]
+        puts NAME + log
+        puts color[1]
+      end
+
+      def log(log)
+        log(log, withColor: DEFAULT_COLOR)
       end
     end
   end
