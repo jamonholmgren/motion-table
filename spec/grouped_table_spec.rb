@@ -11,8 +11,7 @@ describe "Test App" do
     tests TestViewController
 
     it "includes MotionTable::GroupedTable as a mixin" do
-      true
+      controller.class.included_modules.should.include?(MotionTable::GroupedTable)
     end
-    
   end
 end
