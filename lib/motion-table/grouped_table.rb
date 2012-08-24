@@ -43,7 +43,7 @@ module MotionTable
       if self.respond_to?(cell[:action])
         self.send(cell[:action])
       else
-        puts "\n\e[0;31m MotionTable -- #{self.to_s} does not implement the action: :#{cell[:action]} \e[0m\n"
+        puts "\e[0;31m MotionTable -- #{self.to_s} does not implement the action: :#{cell[:action]} \e[0m"
       end
     end
 
