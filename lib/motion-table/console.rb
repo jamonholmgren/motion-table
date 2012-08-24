@@ -5,7 +5,7 @@ module MotionTable
 
     class << self
       def log(obj, actionNotImplemented:action)
-        log_ " actionNotImplemented -- the action :#{action} is not implemented in #{obj.class.to_s}", withColor: RED_COLOR
+        log " actionNotImplemented -- the action :#{action} is not implemented in #{obj.class.to_s}", withColor: RED_COLOR
       end
 
       def log(log, withColor:color)
