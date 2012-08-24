@@ -42,6 +42,8 @@ module MotionTable
       tableView.deselectRowAtIndexPath(indexPath, animated: true);
       if self.respond_to?(cell[:action])
         self.send(cell[:action])
+      else
+        puts "MotionTable -- #{self.to_s} does not implement the action: #{cell[:action]}"
       end
     end
 
