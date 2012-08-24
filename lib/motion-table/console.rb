@@ -2,7 +2,7 @@ module MotionTable
   class Console
     NAME = "MotionTable::Console"
     DEFAULT_COLOR = [ '', '' ]
-    RED_COLOR = [ '\e[0;31m', '\e[0m' ]
+    RED_COLOR = [ "\e[0;31m", "\e[0m" ] # Must be in double quotes
 
     class << self
       def log(obj, actionNotImplemented:action)
