@@ -9,7 +9,7 @@ module MotionTable
       end
 
       def log(log, withColor:color)
-        puts color[0] + " " + NAME + log + " " + color[1]
+        puts "#{color[0]} #{NAME} #{log} #{color[1]}".to_s
       end
     end
   end
