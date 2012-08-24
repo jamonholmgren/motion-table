@@ -31,7 +31,7 @@ class TestViewController < UITableViewController
       }
     ]
 
-    self.view = self.createTableViewFromData(grouped_table_view_data)
+    self.tableView = self.createTableViewFromData(grouped_table_view_data)
   end
 
   def edit_profile
