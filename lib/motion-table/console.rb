@@ -1,7 +1,7 @@
 module MotionTable
   module Console
     NAME = "MotionTable::Console"
-    RED_COLOR: [ '\e[0;31m', '\e[0m' ]
+    RED_COLOR = [ '\e[0;31m', '\e[0m' ]
 
     def log(obj, actionNotImplemented:action)
       log_red " actionNotImplemented -- the action :#{action} is not implemented in #{obj.class.to_s}", RED_COLOR
