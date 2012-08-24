@@ -43,7 +43,7 @@ module MotionTable
       if self.respond_to?(cell[:action])
         self.send(cell[:action])
       else
-        MotionTable::Console.log(self, actionNotImplemented: cell[:action]) unless DEBUG == false
+        MotionTable::Console.log(self, actionNotImplemented: cell[:action])
         # puts "\e[0;31m MotionTable -- #{self.to_s} does not implement the action: :#{cell[:action]} \e[0m"
       end
     end
