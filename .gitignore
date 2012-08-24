@@ -18,3 +18,4 @@ tmp
 .repl_history
 build
 build/*
+*.000
