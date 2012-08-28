@@ -99,7 +99,7 @@ class MyController < UITableViewController
     # load this friend based on id
   end
 
-  def somethind_here(args)
+  def something_here(args)
     # You can pass any data structure into :arguments, it is just passed as an argument to your implementation
     # You have to handle it. Like so:
     args.each do |k, v|
