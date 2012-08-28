@@ -1,3 +1,0 @@
-# Namespacing
-module MotionTable
-end
