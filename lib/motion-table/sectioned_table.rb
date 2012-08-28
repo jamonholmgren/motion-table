@@ -49,7 +49,7 @@ module MotionTable
         if cell[:arguments]
           self.send(cell[:action], cell[:arguments]) 
         else
-          self.send(cell[:action], cell[:arguments])
+          self.send(cell[:action])
         end
       else
         MotionTable::Console.log(self, actionNotImplemented: cell[:action])
