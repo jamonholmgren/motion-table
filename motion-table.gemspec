@@ -4,8 +4,8 @@ require File.expand_path('../lib/motion-table/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["ClearSight Studio"]
   gem.email         = ["contact@clearsightstudio.com"]
-  gem.description   = "MotionTable is a RubyMotion gem that makes it easy to handle UITableViews from a UITableViewController."
-  gem.summary       = "MotionTable is a RubyMotion gem that makes it easy to handle UITableViews from a UITableViewController. Simply include in the module in your controller."
+  gem.description   = "MotionTable is a RubyMotion gem that makes it easy to handle UITableViews from a UITableViewController.  Simply include in the module in your controller."
+  gem.summary       = "MotionTable is a RubyMotion gem that makes it easy to handle UITableViews from a UITableViewController."
   gem.homepage      = "https://github.com/clearsightstudio/motion-table"
 
   gem.files         = `git ls-files`.split($\)

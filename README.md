@@ -21,10 +21,6 @@ Alternatively, get the edge version:
 
     gem 'motion-table', :git => 'git@github.com:clearsightstudio/motion-table.git'
 
-## Please Note
-
-We only have GroupedTables implemented at this point. We will be adding functionality, but if you need something else, fork it, add it and submit a pull request.
-
 ## Usage
 
 Include MotionTable in your controller and handle UITableViews Easily
