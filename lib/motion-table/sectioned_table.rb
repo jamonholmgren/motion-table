@@ -14,7 +14,8 @@ module MotionTable
     end
 
     def numberOfSectionsInTableView(tableView)
-      return @mt_table_view_groups.length
+      return @mt_table_view_groups.length if @mt_table_view_groups
+      0
     end
 
     # Number of cells
