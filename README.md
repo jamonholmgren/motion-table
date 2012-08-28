@@ -103,7 +103,7 @@ class MyController < UITableViewController
     # You can pass any data structure into :arguments, it is just passed as an argument to your implementation
     # You have to handle it. Like so:
     args.each do |k, v|
-      puts "Argument passed: #{k['v']}""
+      puts "Argument passed: #{v}""
     end
   end
 end
