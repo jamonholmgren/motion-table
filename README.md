@@ -41,7 +41,7 @@ class MyController < UITableViewController
       {
         title: "Your Account",
         cells: [
-          { title: "Edit Profile", action: :edit_profile },
+          { title: "Edit Profile", action: :edit_profile},
           { title: "Log Out", action: :log_out },
         ]
       },
@@ -68,6 +68,46 @@ end
 ```
 
 [<img src="http://i.imgur.com/lCIU6.png">]
+
+```ruby
+class MyController < UITableViewController
+  include MotionTable::PlainTable
+
+  def viewDidLoad
+    super
+    self.title = "Settings"
+
+    @plain_table_view_data ||= [
+      {
+        title: "Friends",
+        cells: [
+          { title: "Friend 1", action: :view_friend, arguments: 1},
+        ]
+      },
+      {
+        title: "Contacts",
+        cells: [
+          { title: "Foo", action: :something_here, arguments: { bar: "baz", this: "that"} },
+        ]
+      }
+    ]
+
+    self.view = self.createTableViewFromData(@plain_table_view_data)
+  end
+
+  def view_friend(id)
+    # load this friend based on id
+  end
+
+  def somethind_here(args)
+    # You can pass any data structure into :arguments, it is just passed as an argument to your implementation
+    # You have to handle it. Like so:
+    args.each do |k, v|
+      puts "Argument passed: #{k['v']}""
+    end
+  end
+end
+```
 
 ## Contributing
 

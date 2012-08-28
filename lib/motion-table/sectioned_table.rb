@@ -46,7 +46,11 @@ module MotionTable
       cell = cellAtSectionAndIndex(indexPath.section, indexPath.row)
       tableView.deselectRowAtIndexPath(indexPath, animated: true);
       if self.respond_to?(cell[:action])
-        self.send(cell[:action])
+        if cell[:arguments]
+          self.send(cell[:action], cell[:arguments]) 
+        else
+          self.send(cell[:action], cell[:arguments])
+        end
       else
         MotionTable::Console.log(self, actionNotImplemented: cell[:action])
       end
