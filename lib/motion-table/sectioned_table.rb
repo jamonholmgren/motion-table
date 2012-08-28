@@ -5,6 +5,9 @@ module MotionTable
       base.send :extend, MotionTable::SectionedTable
     end
 
+    # Likely the only method you need call from the controller
+    # @param [Array] Array of table data
+    # @returns [UITableView] delegated to self
     def createTableViewFromData(data)
       @mt_table_view_groups = data
       return tableView

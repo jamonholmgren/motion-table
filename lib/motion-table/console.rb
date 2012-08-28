@@ -1,4 +1,7 @@
 module MotionTable
+  # @author Silas J Matson
+  # 
+  # Provides coloring for displaying messages in console when running in the simulator
   class Console
     NAME = "MotionTable::Console"
     DEFAULT_COLOR = [ '', '' ]
