@@ -1,10 +1,5 @@
 module MotionTable
   module SectionedTable
-
-    def self.included(base)
-      base.send :extend, MotionTable::SectionedTable
-    end
-
     # Likely the only method you need call from the controller
     # @param [Array] Array of table data
     # @returns [UITableView] delegated to self
@@ -50,10 +45,13 @@ module MotionTable
       cell = cellAtSectionAndIndex(indexPath.section, indexPath.row)
       tableView.deselectRowAtIndexPath(indexPath, animated: true);
       if self.respond_to?(cell[:action])
-        if cell[:arguments]
-          self.send(cell[:action], cell[:arguments]) 
-        else
+        expectedArguments = self.method(cell[:action]).arity
+        if expectedArguments == 0
           self.send(cell[:action])
+        elsif expectedArguments == 1
+          self.send(cell[:action], cell[:arguments])
+        else
+          MotionTable::Console.log("MotionTable warning: #{cell[:action]} expects #{expectedArguments} arguments. Maximum number of required arguments for an action is 1.", withColor: MotionTable::Console::RED_COLOR)
         end
       else
         MotionTable::Console.log(self, actionNotImplemented: cell[:action])
