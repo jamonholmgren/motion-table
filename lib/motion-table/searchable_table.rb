@@ -14,15 +14,15 @@ module MotionTable
       $stderr.puts "Hello, searching.."
       @mt_table_view_groups.removeAllObjects
       @original_data.each do |section|
-        $stderr.puts section
         newGroup = []
         element = NSString
-        for element in section do
-          $stderr.puts element[:title]
-          range = element[:title].rangeOfString(searchString, options: NSCaseInsensitiveSearch)
-          if range.length > 0
-            newGroup.addObject(section.addObject(element))
-          end
+        section.each do |cell|
+
+          $stderr.puts cell[:title]
+          # range = element[:title].rangeOfString(searchString, options: NSCaseInsensitiveSearch)
+          # if range.length > 0
+          #   newGroup.addObject(section.addObject(element))
+          # end
         end
 
         if newGroup.count > 0
