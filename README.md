@@ -33,22 +33,27 @@ class MyController < UITableViewController
     super
     self.title = "Settings"
 
-    @grouped_table_view_data ||= [
-      {
-        title: "Your Account",
-        cells: [
-          { title: "Edit Profile", action: :edit_profile},
-          { title: "Log Out", action: :log_out },
-        ]
-      },
-      {
-        title: "My App",
-        cells: [
-          { title: "About", action: :something_here },
-          { title: "Feedback", action: :something_here }
-        ]
-      }
-    ]
+    @grouped_table_view_data ||= [{
+      title: "Your Account",
+      cells: [
+        { title: "Edit Profile", action: :edit_profile},
+        { title: "Log Out", action: :log_out },
+      ]
+    }, {
+      title: "My App Settings",
+      cells: [{ 
+          title: "Be Awesome", 
+          accessory: :switch, 
+          accessoryDefault: true, 
+          accessoryAction: :save_being_awesome
+        }, { 
+          title: "Mute", 
+          accessory: :switch, 
+          accessoryDefault: false, 
+          accessoryAction: :save_mute
+        },
+      ]
+    }]
 
     self.view = self.createTableViewFromData(@grouped_table_view_data)
   end
@@ -59,6 +64,18 @@ class MyController < UITableViewController
 
   def edit_profile
     # Implement your edit_profile view here
+  end
+
+  def save_being_awesome(args)
+    # Depending on whether the switch is on or off,
+    # args => { value: true } or
+    # args => { value: false }
+  end
+
+  def save_mute(args)
+    # Depending on whether the switch is on or off,
+    # args => { value: true } or
+    # args => { value: false }
   end
 end
 ```
