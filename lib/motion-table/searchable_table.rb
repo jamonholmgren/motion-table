@@ -1,11 +1,18 @@
 module MotionTable
   module SearchableTable
-    def makeSearchable
-      searchBar = UISearchBar.alloc.initWithFrame(CGRectMake(0, 0, 320, 44))
-      @contactsSearchDisplayController = UISearchDisplayController.alloc.initWithSearchBar(searchBar, contentsController: self)
-      @contactsSearchDisplayController.delegate = self
-      @contactsSearchDisplayController.searchResultsDataSource = self
-      @contactsSearchDisplayController.searchResultsDelegate = self
+    def makeSearchable(params={})
+      params[:frame] ||= CGRectMake(0, 0, 320, 44)
+      params[:contentController] ||= self
+      params[:delegate] ||= self
+      params[:searchResultsDataSource] ||= self
+      params[:searchResultsDelegate] ||= self
+
+      searchBar = UISearchBar.alloc.initWithFrame(params[:frame])
+
+      @contactsSearchDisplayController = UISearchDisplayController.alloc.initWithSearchBar(searchBar, contentsController: params[:contentController])
+      @contactsSearchDisplayController.delegate = params[:delegate]
+      @contactsSearchDisplayController.searchResultsDataSource = params[:searchResultsDataSource]
+      @contactsSearchDisplayController.searchResultsDelegate = params[:searchResultsDelegate]
       
       self.tableView.tableHeaderView = searchBar
     end
@@ -33,6 +40,7 @@ module MotionTable
 
     def searchDisplayControllerWillEndSearch(controller)
       @mt_table_view_groups = @original_data.clone
+      @original_data = nil
     end
 
     def searchDisplayControllerWillBeginSearch(controller)
