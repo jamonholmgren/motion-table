@@ -87,7 +87,6 @@ end
 ```ruby
 class MyController < UITableViewController
   include MotionTable::PlainTable
-  include MotionTable::SearchableTable # For search capability
 
   def viewDidLoad
     super
@@ -108,7 +107,7 @@ class MyController < UITableViewController
       }
     ]
 
-    self.makeSearchable # Will add search capability if you include MotionTable::SearchableTable, nothing more needed :)
+    self.makeSearchable # Will add search capability, nothing more needed :)
     self.view = self.createTableViewFromData(@plain_table_view_data)
   end
 
