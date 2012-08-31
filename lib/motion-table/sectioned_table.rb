@@ -4,8 +4,13 @@ module MotionTable
     # @param [Array] Array of table data
     # @returns [UITableView] delegated to self
     def createTableViewFromData(data)
-      @mt_table_view_groups = data
+      setData(data)
       return tableView
+    end
+
+    def updateTableViewData(data)
+      @mt_table_view_groups = data
+      @tableView.reloadData
     end
 
     def numberOfSectionsInTableView(tableView)
