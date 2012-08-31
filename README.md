@@ -87,7 +87,7 @@ end
 ```ruby
 class MyController < UITableViewController
   include MotionTable::PlainTable
-  inclued MotionTable::SearchableTable # For search capability
+  include MotionTable::SearchableTable # For search capability
 
   def viewDidLoad
     super
