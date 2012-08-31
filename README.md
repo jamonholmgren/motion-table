@@ -1,6 +1,8 @@
 # MotionTable
 
-MotionTable is a RubyMotion gem for easily building table views in iOS.
+MotionTable is a RubyMotion gem for easily building table views in iOS. 
+
+Feedback welcome: jamon@clearsightstudio.com(@jamonholmgren) or silas@clearsightstudio.com(@silasjmatson)
 
 
 ## Installation
@@ -85,6 +87,7 @@ end
 ```ruby
 class MyController < UITableViewController
   include MotionTable::PlainTable
+  inclued MotionTable::SearchableTable # For search capability
 
   def viewDidLoad
     super
@@ -105,6 +108,7 @@ class MyController < UITableViewController
       }
     ]
 
+    self.makeSearchable # Will add search capability if you include MotionTable::SearchableTable, nothing more needed :)
     self.view = self.createTableViewFromData(@plain_table_view_data)
   end
 
@@ -112,11 +116,11 @@ class MyController < UITableViewController
     # load this friend based on id
   end
 
-  def something_here(args)
+  def something_here(args={})
     # You can pass any data structure into :arguments, it is just passed as an argument to your implementation
     # You have to handle it. Like so:
     args.each do |k, v|
-      puts "Argument passed: #{v}""
+      puts "Argument passed: #{v}"
     end
   end
 end

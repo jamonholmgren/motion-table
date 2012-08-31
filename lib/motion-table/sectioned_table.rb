@@ -4,7 +4,6 @@ module MotionTable
     # @param [Array] Array of table data
     # @returns [UITableView] delegated to self
     def createTableViewFromData(data)
-      @original_data = data.clone
       setTableViewData data
       return tableView
     end
