@@ -1,9 +1,10 @@
 module MotionTable
   module SectionedTable
-    # Likely the only method you need call from the controller
+
     # @param [Array] Array of table data
     # @returns [UITableView] delegated to self
     def createTableViewFromData(data)
+      @original_data = data.clone
       setTableViewData data
       return tableView
     end
