@@ -11,30 +11,28 @@ module MotionTable
     end
 
     def searchDisplayController(controller, shouldReloadTableForSearchString:searchString)
-      $stderr.puts "Hello, searching.."
-      @mt_table_view_groups.removeAllObjects
-      @original_data.each do |section|
-        newGroup = []
-        element = NSString
-        section.each do |cell|
+      @mt_table_view_groups = []
 
-          $stderr.puts cell[:title]
-          # range = element[:title].rangeOfString(searchString, options: NSCaseInsensitiveSearch)
-          # if range.length > 0
-          #   newGroup.addObject(section.addObject(element))
-          # end
+      @original_data.each do |section|
+        newSection = {}
+        newSection[:cells] = []
+
+        section[:cells].each do |cell|
+          if cell[:title].to_s.downcase.strip.include?(searchString.downcase.strip)
+            newSection[:cells] << cell
+          end
         end
 
-        if newGroup.count > 0
-          @mt_table_view_groups = newGroup
+        if newSection.count > 0
+          newSection[:title] = section[:title]
+          @mt_table_view_groups << newSection
         end
       end
       true
     end
 
-    def searchDisplayController(controller, shouldReloadTableForSearchScope:searchOption)
-      $stderr.puts "Hello..."
-      false
+    def searchDisplayControllerWillEndSearch(controller)
+      @mt_table_view_groups = @original_data.clone
     end
   end
 end
