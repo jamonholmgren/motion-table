@@ -30,28 +30,47 @@ module MotionTable
     def tableView(tableView, titleForHeaderInSection:section)
       return sectionAtIndex(section)[:title]
     end
+    
+    # Set table_data_index if you want the right hand index column (jumplist)
+    def sectionIndexTitlesForTableView(tableView)
+      self.table_data_index if respond_to? :table_data_index
+    end
+
 
     def tableView(tableView, cellForRowAtIndexPath:indexPath)
       dataCell = cellAtSectionAndIndex(indexPath.section, indexPath.row)
+      dataCell[:cellStyle] ||= UITableViewCellStyleDefault
       
       cellIdentifier = "Cell"
 
       tableCell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)
       unless tableCell
-        tableCell = UITableViewCell.alloc.initWithFrame(CGRectZero, reuseIdentifier:cellIdentifier)
-        tableCell.accessoryView = dataCell[:accessoryView] if dataCell[:accessoryView]
-        
-        if dataCell[:accessory] && dataCell[:accessory] == :switch
-          switchView = UISwitch.alloc.initWithFrame(CGRectZero)
-          switchView.addTarget(self, action: "accessoryToggledSwitch:", forControlEvents:UIControlEventValueChanged);
-          switchView.on = true if dataCell[:accessoryDefault]
-          tableCell.accessoryView = switchView
-        end
+        tableCell = UITableViewCell.alloc.initWithStyle(dataCell[:cellStyle], reuseIdentifier:cellIdentifier)
       end
+
+      tableCell.accessoryView = dataCell[:accessoryView] if dataCell[:accessoryView]
+  
+      if dataCell[:accessory] && dataCell[:accessory] == :switch
+        switchView = UISwitch.alloc.initWithFrame(CGRectZero)
+        switchView.addTarget(self, action: "accessoryToggledSwitch:", forControlEvents:UIControlEventValueChanged);
+        switchView.on = true if dataCell[:accessoryDefault]
+        tableCell.accessoryView = switchView
+      end
+
+      if dataCell[:subtitle]
+        tableCell.detailTextLabel.text = dataCell[:subtitle]
+      end
+
+
+      if dataCell[:image]
+        tableCell.imageView.layer.masksToBounds = true
+        tableCell.imageView.image = dataCell[:image][:image]
+        tableCell.imageView.layer.cornerRadius = dataCell[:image][:radius] if dataCell[:image][:radius]
+      end
+
       tableCell.text = dataCell[:title]
       return tableCell
     end
-
     def sectionAtIndex(index)
       @mt_table_view_groups.at(index)
     end
@@ -79,12 +98,11 @@ module MotionTable
     end
 
     def triggerAction(action, arguments)
-      $stderr.puts "Action: #{action.to_s} and args #{arguments.to_s}"
       if self.respond_to?(action)
         expectedArguments = self.method(action).arity
         if expectedArguments == 0
           self.send(action)
-        elsif expectedArguments == 1
+        elsif expectedArguments == 1 || expectedArguments == -1
           self.send(action, arguments)
         else
           MotionTable::Console.log("MotionTable warning: #{action} expects #{expectedArguments} arguments. Maximum number of required arguments for an action is 1.", withColor: MotionTable::Console::RED_COLOR)

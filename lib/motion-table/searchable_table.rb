@@ -8,6 +8,9 @@ module MotionTable
       params[:searchResultsDelegate] ||= self
 
       searchBar = UISearchBar.alloc.initWithFrame(params[:frame])
+      if params[:searchBar] && params[:searchBar][:placeholder]
+        searchBar.placeholder = params[:searchBar][:placeholder]
+      end
 
       @contactsSearchDisplayController = UISearchDisplayController.alloc.initWithSearchBar(searchBar, contentsController: params[:contentController])
       @contactsSearchDisplayController.delegate = params[:delegate]

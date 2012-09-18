@@ -1,3 +1,3 @@
 module MotionTable
-  VERSION = "0.1.6" unless defined?(MotionTable::VERSION)
+  VERSION = "0.1.7" unless defined?(MotionTable::VERSION)
 end
