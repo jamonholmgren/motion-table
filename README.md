@@ -45,9 +45,11 @@ class MyController < UITableViewController
       title: "My App Settings",
       cells: [{ 
           title: "Be Awesome", 
-          accessory: :switch, 
-          accessoryDefault: true, 
-          accessoryAction: :save_being_awesome
+          subtitle: "Do so. Please."
+          image: {
+            image: UIImage.imageNamed("image"),
+            radius: 12
+          }
         }, { 
           title: "Mute", 
           accessory: :switch, 
@@ -66,12 +68,6 @@ class MyController < UITableViewController
 
   def edit_profile
     # Implement your edit_profile view here
-  end
-
-  def save_being_awesome(args)
-    # Depending on whether the switch is on or off,
-    # args => { value: true } or
-    # args => { value: false }
   end
 
   def save_mute(args)
