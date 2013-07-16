@@ -1,5 +1,7 @@
 # MotionTable
 
+**NOTE: MotionTable is deprecated and has been merged into the [ProMotion](https://github.com/clearsightstudio/ProMotion) project.
+
 MotionTable is a RubyMotion gem for easily building table views in iOS. 
 
 Feedback welcome: jamon@clearsightstudio.com(@jamonholmgren) or silas@clearsightstudio.com(@silasjmatson)
